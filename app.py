@@ -19,9 +19,7 @@ data = np.array([[ bmi, age, 1 if smoker=="Oui" else 0,
 scaler = StandardScaler()
 new_data = scaler.fit_transform(data[:, [0, 1]])
 data[:, [0, 1]] = new_data
-prediction = model.predict(df)[0]
-
 
 if st.button("Calculer la prime"):
-    prediction = model.predict(df)[0]
+    prediction = model.predict(data)[0]
     st.success(f"Votre prime d'assurance maladie estimée est de ${prediction:.2f}")
